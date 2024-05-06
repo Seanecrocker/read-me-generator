@@ -1,62 +1,63 @@
-// // TODO: Include packages needed for this application
-// const template = require("./template");
-// const fs = require('fs')
-// const inquirer = require('inquirer')
-// const createFile = require("./newFile")
-// // TODO: Create an array of questions for user input
-// inquirer.prompt([
-//     {
-//         type: 'input',
-//         name: 'name',
-//         message: 'title'
-//     }
-// ]).then((data) => {
-//     const mdTemplate = template(data);
-//     console.log(mdTemplate);
-//     createFile('READMe.md', mdTemplate);
-// });
-
-
-
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-
-// // inquirer.prompt(questions).then(response => {
-// //     const markdownContent = generateMarkdown(response)
-// //     fs.writeFile('README.md', markdownContent)
-// // })  
-// // TODO: Create a function to initialize app
-// function init() {}
-
-
-
-
-// // Function call to initialize app
-// init();
-// TODO: Include packages needed for this application
 const createFile = require("./createFile")
 const fs = require('fs');
 const inquirer = require('inquirer');
 const template = require("./generateMarkdown");
 
-// TODO: Create an array of questions for user input
+
 inquirer.prompt([
-    {
-        type: 'input',
-        name: 'name',
-        message: 'Enter title for README:'
-    }
-]).then((data) => {
+        {
+            type: 'input',
+            name: 'title',
+            message: 'Enter title for README:'
+        },
+        {
+            type: 'input',
+            name: 'description',
+            message: 'Enter description for README:'
+        },
+        {
+            type: 'input',
+            name: 'tableOfContents',
+            message: 'Enter table of contents:'
+        },
+        {
+            type: 'input',
+            name: 'installation',
+            message: 'Create installation message:'
+        },
+        {
+            type: 'input',
+            name: 'usage',
+            message: 'How is this application used:'
+        },
+        {
+            type: 'list',
+            name: 'license', 
+            message: 'Select license',
+            choices: ['Apache', 'BSD', 'MT',]
+        },
+        {
+            type: 'input',
+            name: 'contributing',
+            message: 'Who contributed to this application:'
+        },
+        {
+            type: 'input',
+            name: 'test',
+            message: 'How do you test this application:'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'email:'
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'enter github link:'
+        }
+    ]).then((data) => {
     const mdTemplate = template(data);
     console.log(mdTemplate);
-    createFile('README.md', mdTemplate); // Corrected filename to 'README.md'
+    createFile('README.md', mdTemplate); 
 });
-
-// TODO: Create a function to write README file
-// If you intend to use writeToFile, implement its functionality here
-
-// TODO: Create a function to initialize app
-// If you have initialization logic, implement it here
-
-// Function call to initialize app
-// If you have initialization logic, call init() here
